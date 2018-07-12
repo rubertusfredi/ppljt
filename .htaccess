@@ -1,0 +1,49 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteRule ^login$ login.php?module=login [L]
+
+RewriteRule ^33$ index.php?mod=dataKejadian33 [L]
+RewriteRule ^MogokMesin$ index.php?mod=dataKejadianMogokMesin [L]
+RewriteRule ^BBM$ index.php?mod=dataKejadianBBM [L]
+RewriteRule ^RODA$ index.php?mod=dataKejadianRODA [L]
+RewriteRule ^BAN$ index.php?mod=dataKejadianBAN [L]
+RewriteRule ^MUATANTIDAKTERTIB$ index.php?mod=dataKejadianMUATANTIDAKTERTIB [L]
+RewriteRule ^KEBAKARANMOBIL$ index.php?mod=dataKejadianKEBAKARANMOBIL [L]
+RewriteRule ^TARIKMENARIK$ index.php?mod=dataKejadianTARIKMENARIK [L]
+RewriteRule ^KejadianLAIN2$ index.php?mod=dataKejadianLAIN2 [L]
+
+RewriteRule ^44$ index.php?mod=gangguanKamtib44 [L]
+RewriteRule ^JalanBerlubang$ index.php?mod=gangguanKamtibJalanBerlubang [L]
+RewriteRule ^SuporterBola$ index.php?mod=gangguanKamtibSuporterBola [L]
+RewriteRule ^OrangMabuk$ index.php?mod=gangguanKamtibOrangMabuk [L]
+RewriteRule ^PejalanKaki$ index.php?mod=gangguanKamtibPejalanKaki [L]
+RewriteRule ^RodaDua$ index.php?mod=gangguanKamtibRodaDua [L]
+RewriteRule ^Penyebrang$ index.php?mod=gangguanKamtibPenyebrang [L]
+RewriteRule ^Demo$ index.php?mod=gangguanKamtibDemo [L]
+RewriteRule ^Ilalang$ index.php?mod=gangguanKamtibKebakaranIlalang [L]
+RewriteRule ^Ternak$ index.php?mod=gangguanKamtibTernak [L]
+RewriteRule ^KamtibLain2$ index.php?mod=gangguanKamtibLain2 [L]
+
+RewriteRule ^RespondtimesLJT212$ index.php?mod=dataRespondtimesLJT212 [L]
+RewriteRule ^RespondtimesLJT213$ index.php?mod=dataRespondtimesLJT213 [L]
+RewriteRule ^RespondtimesDEREK$ index.php?mod=dataRespondtimesDEREK [L]
+RewriteRule ^RespondtimesRESCUE$ index.php?mod=dataRespondtimesRESCUE [L]
+RewriteRule ^RespondtimesAMBULANCE$ index.php?mod=dataRespondtimesAMBULANCE [L]
+RewriteRule ^RespondtimesPJR$ index.php?mod=dataRespondtimesPJR [L]
+
+RewriteRule ^TelponPenggunaJalan$ index.php?mod=TelponPenggunaJalan [L]
+RewriteRule ^TelponRadioIdola$ index.php?mod=TelponRadioIdola [L]
+RewriteRule ^TelponRadioRRI$ index.php?mod=TelponRadioRRI [L]
+RewriteRule ^TelponRadioRasika$ index.php?mod=TelponRadioRasika [L]
+RewriteRule ^TelponRadioElsinta$ index.php?mod=TelponRadioElsinta [L]
+
+RewriteRule ^TelponMemberiInformasi$ index.php?mod=TelponMemberiInformasi [L]
+RewriteRule ^TelponMemintaBantuan$ index.php?mod=TelponMemintaBantuan [L]
+RewriteRule ^TelponMemintaInformasi$ index.php?mod=TelponMemintaInformasi [L]
+RewriteRule ^TelponPengaduan$ index.php?mod=TelponPengaduan [L]
+RewriteRule ^TelponMemberiSumbangSaran$ index.php?mod=TelponMemberiSumbangSaran [L]
+RewriteRule ^TelponLainlain$ index.php?mod=TelponLainlain [L]
+
+Options All -Indexes
+</IfModule>

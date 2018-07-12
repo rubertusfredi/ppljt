@@ -1,0 +1,2 @@
+CREATE INDEX nama_idx_tr_kejadian1
+ON tb_detail_laporan (type_kejadian, taruna_dari) USING BTREE;
