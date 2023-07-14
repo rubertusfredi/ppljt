@@ -102,10 +102,21 @@ $moduleDesc = " Laporan Harian Petugas";
 					<div class="box-header with-border">-->
 
        
-              <a class="btn btn-app bg-red">
-                <i class="fa fa-mail-reply-all" onclick="goBack()" ></i>Kembali
-              </a>                   
-				<div>
+              <a class="btn btn-app bg-blue">
+                <i class="glyphicon glyphicon-hand-left" onclick="goBack()" ></i>Kembali
+              </a>					
+					
+					<script>
+						function goBack() {
+								window.history.back();
+											}
+					</script>
+                    <hr/>
+				<div class="">
+					<div class="box-header with-border">
+					  <h3 class="box-title"></h3><small>&nbsp;</small>
+					</div>
+					<!-- /.box-header -->
 					<!-- form start -->
 					<form class="form-horizontal" id="formKejadian" action='<?php echo $fgmembersite->GetSelfScript(); ?>?mod=<?php echo $_GET['mod']; ?>' method='post' accept-charset='UTF-8'>
 <?php
@@ -145,6 +156,7 @@ if((isset($_GET['st'])) and ($_GET['st']=="edit"))
 	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="204") {echo "selected"; } ?> value="204">204</option>
 	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="241") {echo "selected"; } ?> value="241">241</option>
 	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="223") {echo "selected"; } ?> value="223">223</option>
+	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="221E") {echo "selected"; } ?> value="221E">221E</option>
 	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="130A") {echo "selected"; } ?> value="130A">130A</option>										
 	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="LJT210") {echo "selected"; } ?> value="LJT210" >LJT210</option>
 	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="LJT212") {echo "selected"; } ?> value="LJT212">LJT212</option>
@@ -157,6 +169,11 @@ if((isset($_GET['st'])) and ($_GET['st']=="edit"))
 	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.TEMBALANG") {echo "selected"; } ?> value="GT.TEMBALANG">GT.TEMBALANG</option>
 	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.GAYAMSARI") {echo "selected"; } ?> value="GT.GAYAMSARI">GT.GAYAMSARI</option>
 	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.MUKTIHARJO") {echo "selected"; } ?> value="GT.MUKTIHARJO">GT.MUKTIHARJO</option>
+	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.KALIKANGKUNG") {echo "selected"; } ?> value="GT.KALIKANGKUNG">GT.KALIKANGKUNG</option>
+	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.KRAPYAK1") {echo "selected"; } ?> value="GT.KRAPYAK1">GT.KRAPYAK1</option>
+	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.KRAPYAK2") {echo "selected"; } ?> value="GT.KRAPYAK2">GT.KRAPYAK2</option>	
+	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="TI") {echo "selected"; } ?> value="TI">TI</option>	
+	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="JMTM") {echo "selected"; } ?> value="JMTM">JMTM</option>
 	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="WARGA") {echo "selected"; } ?> value="WARGA">WARGA</option>
 	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="PANTAUAN CCTV") {echo "selected"; } ?> value="PANTAUAN CCTV">PANTAUAN CCTV</option>
 	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="TELPON PENGGUNA JALAN") {echo "selected"; } ?> value="TELPON PENGGUNA JALAN">TELPON PENGGUNA JALAN</option>
@@ -164,6 +181,8 @@ if((isset($_GET['st'])) and ($_GET['st']=="edit"))
 	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="TELPON RADIO IDOLA") {echo "selected"; } ?> value="TELPON RADIO IDOLA">TELPON RADIO IDOLA</option>
 	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="TELPON RADIO RRI") {echo "selected"; } ?> value="TELPON RADIO RRI">TELPON RADIO RRI</option>
 	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="TELPON RADIO ELSINTA") {echo "selected"; } ?> value="TELPON RADIO ELSINTA">TELPON RADIO ELSINTA</option>
+	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="JMTIC") {echo "selected"; } ?> value="JMTIC">JMTIC</option>
+	<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="RUAS LAIN") {echo "selected"; } ?> value="RUAS LAIN">JMTIC</option>
 	
 									</select>							
 								</div>
@@ -278,26 +297,26 @@ if((isset($_GET['st'])) and ($_GET['st']=="edit"))
 										<option <?php if($fgmembersite->SafeDisplay('km')=="GT.Tembalang") {echo "selected"; } ?> value="GT.Tembalang">GT.Tembalang</option>
 										<option <?php if($fgmembersite->SafeDisplay('km')=="GT.Gayamsari") {echo "selected"; } ?> value="GT.Gayamsari">GT.Gayamsari</option>
 										<option <?php if($fgmembersite->SafeDisplay('km')=="GT.Muktiharjo") {echo "selected"; } ?> value="GT.Muktiharjo">GT.Muktiharjo</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="00") {echo "selected"; } ?> value="00">00</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="01") {echo "selected"; } ?> value="01">01</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="02") {echo "selected"; } ?> value="02">02</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="03") {echo "selected"; } ?> value="03">03</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="04") {echo "selected"; } ?> value="04">04</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="05") {echo "selected"; } ?> value="05">05</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="06") {echo "selected"; } ?> value="06">06</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="07") {echo "selected"; } ?> value="07">07</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="08") {echo "selected"; } ?> value="08">08</option>	
-										<option <?php if($fgmembersite->SafeDisplay('km')=="09") {echo "selected"; } ?> value="09">09</option>	
-										<option <?php if($fgmembersite->SafeDisplay('km')=="10") {echo "selected"; } ?> value="10">10</option>	
-										<option <?php if($fgmembersite->SafeDisplay('km')=="11") {echo "selected"; } ?> value="11">11</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="12") {echo "selected"; } ?> value="12">12</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="13") {echo "selected"; } ?> value="13">13</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="14") {echo "selected"; } ?> value="14">14</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="15") {echo "selected"; } ?> value="15">15</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="16") {echo "selected"; } ?> value="16">16</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="17") {echo "selected"; } ?> value="17">17</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="18") {echo "selected"; } ?> value="18">18</option>
-										<option <?php if($fgmembersite->SafeDisplay('km')=="19") {echo "selected"; } ?> value="19">19</option>													
+										<option <?php if($fgmembersite->SafeDisplay('km')=="420") {echo "selected"; } ?> value="420">420</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="421") {echo "selected"; } ?> value="421">421</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="422") {echo "selected"; } ?> value="422">422</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="423") {echo "selected"; } ?> value="423">423</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="424") {echo "selected"; } ?> value="424">424</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="425") {echo "selected"; } ?> value="425">425</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="426") {echo "selected"; } ?> value="426">426</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="427") {echo "selected"; } ?> value="427">427</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="428") {echo "selected"; } ?> value="428">428</option>	
+										<option <?php if($fgmembersite->SafeDisplay('km')=="429") {echo "selected"; } ?> value="429">429</option>	
+										<option <?php if($fgmembersite->SafeDisplay('km')=="430") {echo "selected"; } ?> value="430">430</option>	
+										<option <?php if($fgmembersite->SafeDisplay('km')=="431") {echo "selected"; } ?> value="431">431</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="432") {echo "selected"; } ?> value="432">432</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="433") {echo "selected"; } ?> value="433">433</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="434") {echo "selected"; } ?> value="434">434</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="435") {echo "selected"; } ?> value="435">435</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="436") {echo "selected"; } ?> value="436">436</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="437") {echo "selected"; } ?> value="437">437</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="438") {echo "selected"; } ?> value="438">438</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="439") {echo "selected"; } ?> value="439">439</option>													
 									</select>				
 								</div>
 								<?php if (isset($error['km'])){echo '<i><small><span class="help-block">'.$error['km'].'</span></small></i>';} ?>
@@ -348,7 +367,9 @@ if((isset($_GET['st'])) and ($_GET['st']=="edit"))
 									</div>
                                     <select class="form-control" id="seksi" name="seksi" disabled>
                                         <option value="">--</option>
-										<option <?php if($fgmembersite->SafeDisplay('seksi')=="A/A") {echo "selected"; } ?>  value="A/A">A/A</option>										
+										<option <?php if($fgmembersite->SafeDisplay('seksi')=="A") {echo "selected"; } ?>  value="A">A</option>										
+									    <option <?php if($fgmembersite->SafeDisplay('seksi')=="B") {echo "selected"; } ?>  value="B">B</option>											
+										<option <?php if($fgmembersite->SafeDisplay('seksi')=="A/A") {echo "selected"; } ?> value="A/A">A/A</option>										
 										<option <?php if($fgmembersite->SafeDisplay('seksi')=="A/B") {echo "selected"; } ?> value="A/B">A/B</option>
 										<option <?php if($fgmembersite->SafeDisplay('seksi')=="A/C") {echo "selected"; } ?> value="A/C">A/C</option>
 										<option <?php if($fgmembersite->SafeDisplay('seksi')=="B/A") {echo "selected"; } ?> value="B/A">B/A</option>
@@ -369,7 +390,7 @@ if((isset($_GET['st'])) and ($_GET['st']=="edit"))
 <!---------------------------- WAKTU range antar jam ambil dari tabel tb_waktu gan, dan di menu manager ditambahkan CRUD tabelnya ---------------------------->						
 						<div class="row">							
 							<div class="col-sm-2 col-sm-offset-2">
-								<h4 ><span class="label label-success">RENTANG WAKTU</span></h4>
+								<h4 ><span class="label label-success">WAKTU</span></h4>
 							</div>
 							<div class="col-sm-2 col-sm-offset-2">
 								<h4 ><span class="label label-danger ">KEPERLUAN TELPON</span></h4>
@@ -377,7 +398,7 @@ if((isset($_GET['st'])) and ($_GET['st']=="edit"))
 						</div>	
 					
 						<div class="form-group <?php if (isset($error['waktu'])){echo 'has-error';} ?>">
-							<label for="waktu" class="col-sm-2 control-label">TELPON DITERIMA</label>
+							<label for="waktu" class="col-sm-2 control-label">INFO DITERIMA</label>
 
 							<div class="col-sm-3">
 								<div class="input-group">
@@ -562,18 +583,18 @@ $a++;
   $(function () {
     
     var table = $('#table-petugas-tambahan').DataTable({
-      'paging'      : true,
-      'lengthChange': true,
-      'searching'   : true,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : true,
-	  'responsive': true,
+      'paging'      : false,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : false,
+      'info'        : false,
+      'autoWidth'   : false,
+	  'responsive': false,
 		"columnDefs": [
-			{ "orderable": true, "targets": 0 },
-			{ "orderable": true, "targets": 1 },
-			{ "orderable": true, "targets": 2 },
-			{ "orderable": true, "targets": 3 }
+			{ "orderable": false, "targets": 0 },
+			{ "orderable": false, "targets": 1 },
+			{ "orderable": false, "targets": 2 },
+			{ "orderable": false, "targets": 3 }
 		],
 		"columns": [
            /*
@@ -1192,6 +1213,7 @@ $(function()
 								if($outputd['taruna_dari']=="204"){ echo '<span class="label label-warning">'.$outputd['taruna_dari'].'</span>';}
 								if($outputd['taruna_dari']=="241"){ echo '<span class="label label-primary">'.$outputd['taruna_dari'].'</span>';}
 								if($outputd['taruna_dari']=="223"){ echo '<span class="label label-primary">'.$outputd['taruna_dari'].'</span>';}
+								if($outputd['taruna_dari']=="221E"){ echo '<span class="label label-primary">'.$outputd['taruna_dari'].'</span>';}
 								if($outputd['taruna_dari']=="130A"){ echo '<span class="label label-warning">'.$outputd['taruna_dari'].'</span>';}
 								if($outputd['taruna_dari']=="LJT210"){ echo '<span class="label label-primary">'.$outputd['taruna_dari'].'</span>';}
 								if($outputd['taruna_dari']=="LJT212"){ echo '<span class="label label-primary">'.$outputd['taruna_dari'].'</span>';}
@@ -1200,10 +1222,18 @@ $(function()
 								if($outputd['taruna_dari']=="RESCUE"){ echo '<span class="label label-danger">'.$outputd['taruna_dari'].'</span>';}
 								if($outputd['taruna_dari']=="AMBULANCE"){ echo '<span class="label label-danger">'.$outputd['taruna_dari'].'</span>';}
 								if($outputd['taruna_dari']=="PJR"){ echo '<span class="label label-warning">'.$outputd['taruna_dari'].'</span>';}
+								if($outputd['taruna_dari']=="TIRTA"){ echo '<span class="label label-warning">'.$outputd['taruna_dari'].'</span>';}
+								if($outputd['taruna_dari']=="TI"){ echo '<span class="label label-warning">'.$outputd['taruna_dari'].'</span>';}
 								if($outputd['taruna_dari']=="GT.MANYARAN"){ echo '<span class="label label-primary">'.$outputd['taruna_dari'].'</span>';}
 								if($outputd['taruna_dari']=="GT.TEMBALANG"){ echo '<span class="label label-primary">'.$outputd['taruna_dari'].'</span>';}
 								if($outputd['taruna_dari']=="GT.GAYAMSARI"){ echo '<span class="label label-primary">'.$outputd['taruna_dari'].'</span>';}								
 								if($outputd['taruna_dari']=="GT.MUKTIHARJO"){ echo '<span class="label label-primary">'.$outputd['taruna_dari'].'</span>';}
+								if($outputd['taruna_dari']=="GT.JATINGALEH1"){ echo '<span class="label label-primary">'.$outputd['taruna_dari'].'</span>';}
+								if($outputd['taruna_dari']=="GT.JATINGALEH2"){ echo '<span class="label label-primary">'.$outputd['taruna_dari'].'</span>';}
+								if($outputd['taruna_dari']=="GT.SRONDOL"){ echo '<span class="label label-primary">'.$outputd['taruna_dari'].'</span>';}
+								if($outputd['taruna_dari']=="GT.KALIKANGKUNG"){ echo '<span class="label label-primary">'.$outputd['taruna_dari'].'</span>';}
+								if($outputd['taruna_dari']=="GT.KRAPYAK1"){ echo '<span class="label label-primary">'.$outputd['taruna_dari'].'</span>';}
+								if($outputd['taruna_dari']=="GT.KRAPYAK2"){ echo '<span class="label label-primary">'.$outputd['taruna_dari'].'</span>';}
 								if($outputd['taruna_dari']=="WARGA"){ echo '<span class="label label-warning">'.$outputd['taruna_dari'].'</span>';}								
 								if($outputd['taruna_dari']=="PANTAUAN CCTV"){ echo '<span class="label label-warning">'.$outputd['taruna_dari'].'</span>';}																
 								if($outputd['taruna_dari']=="TELPON PENGGUNA JALAN"){ echo '<span class="label label-warning">'.$outputd['taruna_dari'].'</span>';}								
@@ -1211,6 +1241,7 @@ $(function()
 								if($outputd['taruna_dari']=="TELPON RADIO IDOLA"){ echo '<span class="label label-warning">'.$outputd['taruna_dari'].'</span>';}
 								if($outputd['taruna_dari']=="TELPON RADIO RRI"){ echo '<span class="label label-warning">'.$outputd['taruna_dari'].'</span>';}
 								if($outputd['taruna_dari']=="TELPON RADIO ELSINTA"){ echo '<span class="label label-warning">'.$outputd['taruna_dari'].'</span>';}
+								if($outputd['taruna_dari']=="JMTIC"){ echo '<span class="label label-warning">'.$outputd['taruna_dari'].'</span>';}
 								?>
 								</td>
 								<td rowspan="<?php echo $rowspan; ?>"><?php echo $outputd['type_kejadian']; ?> </td>
@@ -1266,6 +1297,8 @@ $(function()
 										if($outputdsub['petugas']=="204"){ echo '<span class="label label-warning">'.$outputdsub['petugas'].'</span>';}
 										if($outputdsub['petugas']=="241"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}
 										if($outputdsub['petugas']=="223"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}
+										if($outputdsub['petugas']=="221E"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}
+										if($outputdsub['petugas']=="221E"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}
 										if($outputdsub['petugas']=="130A"){ echo '<span class="label label-warning">'.$outputdsub['petugas'].'</span>';}
 										if($outputdsub['petugas']=="LJT210"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}
 										if($outputdsub['petugas']=="LJT212"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}
@@ -1274,10 +1307,19 @@ $(function()
 										if($outputdsub['petugas']=="RESCUE"){ echo '<span class="label label-danger">'.$outputdsub['petugas'].'</span>';}
 										if($outputdsub['petugas']=="AMBULANCE"){ echo '<span class="label label-danger">'.$outputdsub['petugas'].'</span>';}
 										if($outputdsub['petugas']=="PJR"){ echo '<span class="label label-warning">'.$outputdsub['petugas'].'</span>';}
+										if($outputdsub['petugas']=="TIRTA"){ echo '<span class="label label-warning">'.$outputdsub['petugas'].'</span>';}
+										if($outputdsub['petugas']=="TI"){ echo '<span class="label label-warning">'.$outputdsub['petugas'].'</span>';}
+										if($outputdsub['petugas']=="JMTM"){ echo '<span class="label label-warning">'.$outputdsub['petugas'].'</span>';}
 										if($outputdsub['petugas']=="GT.MANYARAN"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}
 										if($outputdsub['petugas']=="GT.TEMBALANG"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}
 										if($outputdsub['petugas']=="GT.GAYAMSARI"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}								
 										if($outputdsub['petugas']=="GT.MUKTIHARJO"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}
+										if($outputdsub['petugas']=="GT.JATINGALEH1"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}
+										if($outputdsub['petugas']=="GT.JATINGALEH2"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}
+										if($outputdsub['petugas']=="GT.SRONDOL"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}
+										if($outputdsub['petugas']=="GT.KALIKANGKUNG"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}
+										if($outputdsub['petugas']=="GT.KRAPYAK1"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}
+										if($outputdsub['petugas']=="GT.KRAPYAK2"){ echo '<span class="label label-primary">'.$outputdsub['petugas'].'</span>';}
 										if($outputdsub['petugas']=="WARGA"){ echo '<span class="label label-warning">'.$outputdsub['petugas'].'</span>';}								
 										if($outputdsub['petugas']=="PANTAUAN CCTV"){ echo '<span class="label label-warning">'.$outputdsub['petugas'].'</span>';}																		
 										if($outputdsub['petugas']=="TELPON PENGGUNA JALAN"){ echo '<span class="label label-warning">'.$outputdsub['petugas'].'</span>';}								
@@ -1285,6 +1327,7 @@ $(function()
 										if($outputdsub['petugas']=="TELPON RADIO IDOLA"){ echo '<span class="label label-warning">'.$outputdsub['petugas'].'</span>';}
 										if($outputdsub['petugas']=="TELPON RADIO RRI"){ echo '<span class="label label-warning">'.$outputdsub['petugas'].'</span>';}
 										if($outputdsub['petugas']=="TELPON RADIO ELSINTA"){ echo '<span class="label label-warning">'.$outputdsub['petugas'].'</span>';}
+										if($outputdsub['petugas']=="JMTIC"){ echo '<span class="label label-warning">'.$outputdsub['petugas'].'</span>';}
 										?>
 										</td>								
 									</tr>
@@ -1377,6 +1420,7 @@ $(function()
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="204") {echo "selected"; } ?> data-value="204" value="204">204</option>
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="241") {echo "selected"; } ?> value="241">241</option>
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="223") {echo "selected"; } ?> value="223">223</option>
+						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="221E") {echo "selected"; } ?> value="221E">221E</option>
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="130A") {echo "selected"; } ?> value="130A">130A</option>										
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="LJT210") {echo "selected"; } ?> value="LJT210" >LJT210</option>
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="LJT212") {echo "selected"; } ?> value="LJT212">LJT212</option>
@@ -1385,10 +1429,19 @@ $(function()
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="RESCUE") {echo "selected"; } ?> value="RESCUE">RESCUE</option>
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="AMBULANCE") {echo "selected"; } ?> value="AMBULANCE">AMBULANCE</option>
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="PJR") {echo "selected"; } ?> value="PJR">PJR</option>
+						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="TIRTA") {echo "selected"; } ?> value="TIRTA">TIRTA</option>
+						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="TI") {echo "selected"; } ?> value="TI">TI</option>
+						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="JMTM") {echo "selected"; } ?> value="JMTM">JMTM</option>
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.MANYARAN") {echo "selected"; } ?> value="GT.MANYARAN">GT.MANYARAN</option>
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.TEMBALANG") {echo "selected"; } ?> value="GT.TEMBALANG">GT.TEMBALANG</option>
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.GAYAMSARI") {echo "selected"; } ?> value="GT.GAYAMSARI">GT.GAYAMSARI</option>
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.MUKTIHARJO") {echo "selected"; } ?> value="GT.MUKTIHARJO">GT.MUKTIHARJO</option>
+						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.JATINGALEH1") {echo "selected"; } ?> value="GT.JATINGALEH1">GT.JATINGALEH1</option>
+						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.JATINGALEH2") {echo "selected"; } ?> value="GT.JATINGALEH2">GT.JATINGALEH2</option>
+						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.SRONDOL") {echo "selected"; } ?> value="GT.SRONDOL">GT.SRONDOL</option>
+						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.KALIKANGKUNG") {echo "selected"; } ?> value="GT.KALIKANGKUNG">GT.KALIKANGKUNG</option>
+						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.KRAPYAK1") {echo "selected"; } ?> value="GT.KRAPYAK1">GT.KRAPYAK1</option>
+						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="GT.KRAPYAK2") {echo "selected"; } ?> value="GT.KRAPYAK2">GT.KRAPYAK2</option>
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="WARGA") {echo "selected"; } ?> value="WARGA">WARGA</option>
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="PANTAUAN CCTV") {echo "selected"; } ?> value="PANTAUAN CCTV">PANTAUAN CCTV</option>
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="TELPON PENGGUNA JALAN") {echo "selected"; } ?> value="TELPON PENGGUNA JALAN">TELPON PENGGUNA JALAN</option>
@@ -1396,6 +1449,7 @@ $(function()
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="TELPON RADIO IDOLA") {echo "selected"; } ?> value="TELPON RADIO IDOLA">TELPON RADIO IDOLA</option>
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="TELPON RADIO RR") {echo "selected"; } ?> value="TELPON RADIO RR">TELPON RADIO RRI</option>
 						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="TELPON RADIO ELSINTA") {echo "selected"; } ?> value="TELPON RADIO ELSINTA">TELPON RADIO ELSINTA</option>
+						<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="JMTIC") {echo "selected"; } ?> value="JMTIC">JMTIC</option>
 					</select>
 				</div>
 				<?php if (isset($error['petugas'])){echo '<i><small><span class="help-block">'.$error['petugas'].'</span></small></i>';} ?>
@@ -1459,11 +1513,8 @@ $(function()
 <!-- // Modal --> 
 
     </section>
+    <!-- /.content -->
 
-<script>
-function goBack() {
-  window.history.back();										}
-</script>
 <script>
 $(function()
 {

@@ -83,7 +83,7 @@
 	<tbody>
 	<?php 
 
-		$sqlKejadian = "SELECT * FROM tb_laporan a left join tb_pegawai c on a.id_user=c.id_user , tb_detail_laporan b where a.id_laporan=b.id_laporan order by tgl_detail_created desc LIMIT 100";
+		$sqlKejadian = "SELECT * FROM tb_laporan a left join tb_pegawai c on a.id_user=c.id_user , tb_detail_laporan b where a.id_laporan=b.id_laporan order by tgl_detail_created desc LIMIT 1500";
 		$fgmembersite->sql($sqlKejadian);						
 		$resKejadian = $fgmembersite->getResult();
 		$a = 1;
@@ -113,11 +113,11 @@
 		}
 		
 	?>
-		
+			
 	</tbody>
 
 </table>
-		  
+		</div> 
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
@@ -125,25 +125,26 @@
         </div>
         <!-- /.box-footer-->
       </div>
-      </div>	  
       <!-- /.box -->
 
     </section>
     <!-- /.content -->
 	
-	<div class="modal fade " id="modal-default">
+	<div class="modal fade " id="tampil-data">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true"></span></button>
-                <h4 class="modal-title">Detail Data Kejadian dan Gangguan Keamanan Ketertiban</h4>
+				  					<img src="assets1/img/now-logo.png" width="150px" height="90px" alt="">	
+                <h4 class="modal-title">LAPORAN KEJADIAN KHUSUS </h4>
+				PETUGAS INFORMASI DAN KOMUNIKASI
               </div>
 			  
 			  <form class="form-horizontal" id="harianPetugasPik" action='<?php echo $fgmembersite->GetSelfScript(); ?>?mod=<?php echo $_GET['mod']; ?>' method='post' accept-charset='UTF-8'>			
 					<input type='hidden' name='submitted'  value='1'/>
               <div class="modal-body">
-		 <div class="table-responsive">					  
+         <div class="table-responsive">    			  
                 <table class="table table-bordered table-striped">
             <!-------------------- Data Petugas -------------------------------->				
 				      <td><h4 ><span class="label label-success ">Data Petugas</span></td>
@@ -374,16 +375,16 @@
 						<td>
 							<span id="materi_rupiah"></span>
 						</td>
-	                </tr>	
+	                </tr>
 			 <!-------------------- Cuaca -------------------------------->					
 				      <td><h4 ><span class="label label-success ">Info Cuaca</span></td>
 					<tr>
 						<td align="right">Cuaca</td>
 						<td>:</td>
 						<td>
-							<span id="cuaca"></span>							
+							<span id="Cuaca"></span>							
 						</td>
-					</tr>						
+					</tr>					
 			 <!-------------------- Isi Taruna -------------------------------->					
 				      <td><h4 ><span class="label label-success ">Isi Taruna</span></td>
 					<tr>
@@ -397,7 +398,8 @@
               </div>
 			  </form>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tutup</button>                
+                <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Tutup</button>   
+				<button type="button" class="btn btn-primary" onclick="window.print();">Print</button>					
               </div>
             </div>
 			</div>
@@ -437,9 +439,8 @@ $(function ()
 					{ "data": "Shift" },
 					{ "data": "PIK" },
 					{ "data": "Kejadian" },
-					{ "data": "Kamtib" },
 		            { "data": "T1" },
-		            { "data": "Taruna_Dari" },
+		            { "data": "Kilometer"},
 					{ "data": "Cuaca" },
 					{ "data": "DETAIL" },
 		        ],
@@ -455,20 +456,20 @@ $(function ()
 				extend: 'print',
 				className: 'btn btn-app pull-right',
 				text:'<i class="fa fa-print" ></i> <span class="badge bg-purple">Print</span>',
-				filename: 'DataKejadian<?php echo date("Ymd"); ?>'
+				filename: 'DataKejadianKecelakaan<?php echo date("Ymd"); ?>'
 			
 			},
 			{
 				extend: 'excel',
 				className: 'btn btn-app pull-right',
 				text:'<i class="fa fa-file-excel-o" ></i> <span class="badge bg-green">XLS</span>',
-				filename: 'DataKejadian<?php echo date("Ymd"); ?>'
+				filename: 'DataKejadianKecelakaan<?php echo date("Ymd"); ?>'
 			}
 		],
 		"columnDefs": [
 			{ "orderable": true, "targets": 0 },
 			{ "orderable": true, "targets": 3 },
-			{ "orderable": false, "targets": 10 }
+			{ "orderable": true, "targets": 10 }
 		]
 	})
 	
@@ -547,13 +548,13 @@ $("#idForm").submit(function(e)
 				$('#meter').html(obj.meter);
 				$('#ruas').html(obj.ruas);
 				$('#uraian_kegiatan').html(obj.uraian_kegiatan);
-				$('#cuaca').html(obj.cuaca);					
+				$('#Cuaca').html(obj.cuaca);				
 				$('#keterangan').html(obj.keterangan);				
 			}             
 		});
 		//return false;
 		
-		$('#modal-default').modal({
+		$('#tampil-data').modal({
 			show: 'false'
 		}); 
 	

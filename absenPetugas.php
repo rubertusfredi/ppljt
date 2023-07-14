@@ -45,6 +45,7 @@
 							<th class='text-center'>Rescue</th>
 							<th class='text-center'>PJR</th>
 							<th class='text-center'>Gajah</th>
+							<th class='text-center'>Kamtib</th>
 							<th class='text-center'>EDIT</th>
 							<th class='text-center'>DELETE</th>
 							
@@ -52,7 +53,7 @@
 					</thead>
 					<tbody>
 					<?php
-					$sqlh = 'select *,date(tgl_tugas) as tglj from tb_tugas order by tgl_tugas desc, shift desc';
+					$sqlh = 'select *,date(tgl_tugas) as tglj from tb_tugas order by tgl_tugas desc, shift desc limit 31';
 					$fgmembersite->sql($sqlh);
 					$resh = $fgmembersite->getResult();					
 					$a=1;					
@@ -277,6 +278,29 @@
 
 							}
 							echo "</td>";
+							
+							## Kamtib
+							$sqldet = 'select * from tbl_tugas_detail a,tb_pegawai b where a.id_user=b.id_user and a.id_tugas="'.$outputh['id_tugas'].'" and id_kendaraan="223"';	
+							$fgmembersite->sql($sqldet);
+							$resdet = $fgmembersite->getResult();
+							$b=1;
+							echo "<td class='text-center'>";
+							foreach($resdet as $outputdet)
+							{
+								$imgtemp = "";
+								if ($outputdet['foto']<>"")
+								{
+									$imgtemp = $fgmembersite->sitename.$fgmembersite->media_img.$outputdet['foto'];
+								}
+								else
+								{
+									$imgtemp = $fgmembersite->sitename.$fgmembersite->assets.'dist/img/user-160x160.png';
+								}
+								echo "
+                    <img src='".$imgtemp."' class='img-circle' alt='User Image' width='60'> <br><a class='' href='#'>";echo $outputdet['name']."</a> <span class='users-list-date'>(".$outputdet['npp'].") <strong>".$outputdet['id_kendaraan']."</strong>";echo "</span> ";
+
+							}
+							echo "</td>";							
 						}
 						else
 						{
@@ -291,10 +315,7 @@
 							<button type="button" class="btn bg-maroon  btn-flat delete" id="del<?php echo $outputh['id_tugas']; ?>"><i class="fa fa-trash"></i></button>
 							
 						</td>
-						<td>
-							<button type="button" class="btn bg-green  btn-flat delete" id="verifi<?php echo $outputh['id_tugas']; ?>"><i class="fa fa-trash"></i></button>
-							
-						</td>						
+					
 						<?php
 						echo "</tr>";
 						$a++;

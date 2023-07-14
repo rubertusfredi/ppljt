@@ -227,7 +227,7 @@ else
 						<select class="form-control" id="ka_shift" name="ka_shift" required="true" >
 							<option value="">--</option>
 							<?php									
-							$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="3"','id_user DESC'); 
+							$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="3"','id_user ASC'); 
 							$res = $fgmembersite->getResult();
 							foreach($res as $output)
 							{
@@ -254,7 +254,7 @@ else
 						<select class="form-control" id="pik" name="pik"  >							
 							<!-- <option value="">--</option> -->
 							<?php																
-							$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="2"','id_user DESC'); 							
+							$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="2"','name ASC'); 							
 							$res = $fgmembersite->getResult();							
 							foreach($res as $output)							
 							{
@@ -283,10 +283,10 @@ else
 				<div class="input-group-addon">							
 				<i class="fa fa-genderless"></i>						
 				</div>						
-				<select class="form-control" id="pik_2" name="pik_2" required="true" >							
+				<select class="form-control" id="pik_2" name="pik_2"  >							
 				<option value="">--</option>							
 				<?php																
-				$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','id_user DESC'); 							
+				$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','name ASC'); 							
 				$res = $fgmembersite->getResult();							
 				foreach($res as $output)							
 				{								
@@ -365,7 +365,7 @@ else
 								<select class="form-control" id="petugas1" name="petugas1">
 									<option value="">--</option>
 									<?php									
-									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','id_user DESC'); 
+									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','name ASC'); 
 									
 									$res = $fgmembersite->getResult();
 									foreach($res as $output)
@@ -389,7 +389,7 @@ else
 								<select class="form-control" id="petugas3" name="petugas3">
 									<option value="">--</option>
 									<?php									
-									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','id_user DESC'); 
+									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','name ASC'); 
 									$res = $fgmembersite->getResult();
 									foreach($res as $output)
 									{
@@ -416,7 +416,7 @@ else
 								<select class="form-control" name="petugas2">
 									<option value="">--</option>
 									<?php									
-									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','id_user DESC'); 
+									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','name ASC'); 
 									$res = $fgmembersite->getResult();
 									foreach($res as $output)
 									{
@@ -438,7 +438,7 @@ else
 								<select class="form-control" name="petugas4">
 									<option value="">--</option>
 									<?php									
-									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','id_user DESC'); 
+									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','name ASC'); 
 									$res = $fgmembersite->getResult();
 									foreach($res as $output)
 									{
@@ -462,7 +462,7 @@ else
 								<select class="form-control" name="petugas5">
 									<option value="">--</option>
 									<?php									
-									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','id_user DESC'); 
+									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','name ASC'); 
 									$res = $fgmembersite->getResult();
 									foreach($res as $output)
 									{
@@ -484,7 +484,7 @@ else
 								<select class="form-control" name="petugas6">
 									<option value="">--</option>
 									<?php									
-									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','id_user DESC'); 
+									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','name ASC'); 
 									$res = $fgmembersite->getResult();
 									foreach($res as $output)
 									{
@@ -511,7 +511,7 @@ else
 								<select class="form-control" name="petugas7">
 									<option value="">--</option>
 									<?php									
-									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','id_user DESC'); 
+									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','name ASC'); 
 									$res = $fgmembersite->getResult();
 									foreach($res as $output)
 									{
@@ -549,7 +549,7 @@ else
 
 									<?php									
 
-									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="7"','id_user DESC'); 
+									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="7"','name ASC'); 
 
 									$res = $fgmembersite->getResult();
 
@@ -591,7 +591,7 @@ else
 
 									<?php									
 
-									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="8"','id_user DESC'); 
+									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="8"','name ASC'); 
 
 									$res = $fgmembersite->getResult();
 
@@ -613,7 +613,57 @@ else
 
 							<?php if (isset($error['petugas9'])){echo '<i><small><span class="help-block">'.$error['petugas9'].'</span></small></i>';} ?>
 
-						</div>						
+						</div>
+					<div class="form-group <?php if (isset($error['petugas13'])){echo 'has-error';} ?>">
+
+						<label for="petugas13" class="col-sm-2 control-label">GAJAH 3</label>
+
+						<div class="col-sm-3">
+
+							<div class="input-group">
+
+								<div class="input-group-addon">
+
+									<i class="fa fa-genderless"></i>
+
+								</div>
+
+								<select class="form-control" name="petugas13">
+
+									<option value="-">--</option>
+
+									<?php									
+
+									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="8"','name ASC'); 
+
+									$res = $fgmembersite->getResult();
+
+									foreach($res as $output)
+
+									{
+
+										if($fgmembersite->SafeDisplay('petugas13')==$output['id_user']){ $a='selected'; }else{$a='';}
+
+										echo '<option value="'.$output['id_user'].'" '.$a.'>'.$output['name'].' ('.$output['npp'].')</option>';
+
+									}
+
+									?>							
+
+								</select>
+
+							</div>
+
+							<?php if (isset($error['petugas13'])){echo '<i><small><span class="help-block">'.$error['petugas13'].'</span></small></i>';} ?>
+
+						</div>													
+					</div>						
+
+
+
+
+
+						
 					</div>
 						
 					<div class="form-group <?php if (isset($error['petugas10'])){echo 'has-error';} ?>">
@@ -636,7 +686,7 @@ else
 
 									<?php									
 
-									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="8"','id_user DESC'); 
+									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="8"','name ASC'); 
 
 									$res = $fgmembersite->getResult();
 
@@ -660,6 +710,8 @@ else
 
 						</div>													
 					</div>
+					
+
 					
             </div>
             <!-- /.box-body -->
