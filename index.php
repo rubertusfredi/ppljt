@@ -38,6 +38,10 @@ else
 	{		
 		$mod='manager';
 	}
+	else if($auth=='55')
+	{		
+		$mod='barang';
+	}	
 }
 require_once("$mod.php");
 require_once("footer.php");

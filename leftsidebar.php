@@ -1,3 +1,4 @@
+
 <?php if($_SESSION[$fgmembersite->GetLoginSessionVar()]['user']['level_user']=='1')
 {
 }
@@ -88,7 +89,72 @@ else if($_SESSION[$fgmembersite->GetLoginSessionVar()]['user']['level_user']=='2
           </a>          
         </li>
 
+        <li class="header">MENU ADMINISTRASI</li>
+		
+		
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="perjalanan")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=perjalanan">
+            <i class="fa fa-car"></i> <span>Gangguan Perjalanan</span>
+          </a>
+        </li>
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="manager")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=manager">
+            <i class="fa fa-car"></i><span>Gangguan Kendaraan</span>
+          </a>
+        </li>
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="gangguanKamtib")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=gangguanKamtib">
+            <i class="fa fa-warning"></i> <span>Gangguan Kamtib</span>
+          </a>
+        </li>
+         
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="respondTimes")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=respondTimes"> 
+            <i class="glyphicon glyphicon-time"></i>
+            <span>Respond Times Petugas</span>
 
+          </a>
+        </li> 
+		
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="LaporanTelpon")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=LaporanTelpon"> 
+            <i class="glyphicon glyphicon-earphone"></i>
+            <span>Laporan Telpon Masuk</span>
+          </a>
+        </li> 	
+		
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="dataKejadian")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=dataKejadian">
+            <i class="glyphicon glyphicon-th-list"></i> <span>Data Kejadian & Kamtib</span>
+
+          </a>
+        </li>		
+
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="dataPenderekan")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=dataPenderekan">
+            <i class="fa fa-car"></i> <span>Data Penderekan</span>
+          </a>
+        </li>	
+
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="lajurpenyelamat")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=lajurpenyelamat">
+            <i class="fa fa-eraser"></i> <span>Lajur Penyelamat</span>
+          </a>
+        </li>		
+		
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="fatalitas")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=fatalitas">
+            <i class="fa fa-car"></i> <span>Data TK & TF </span>
+          </a>
+        </li>		
+        <li class="header">MONITORING</li>
+		
+		
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="air")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=air">
+            <i class="fa fa-car"></i> <span>Ketinggian Air</span>
+          </a>
+        </li>		
 		
 		<?php ############################################################## ?>
 		
@@ -150,7 +216,21 @@ else if($_SESSION[$fgmembersite->GetLoginSessionVar()]['user']['level_user']=='3
             </span>
 			-->
           </a>          
-        </li>		
+        </li>	
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="timelinePetugas")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=timelinePetugas">
+            <i class="fa fa-laptop"></i> <span>Waktu dan Posisi</span>
+            <!--<span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+			-->
+          </a>          
+        </li>
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="perjalanan")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=perjalanan">
+            <i class="fa fa-car"></i> <span>Gangguan Perjalanan</span>
+          </a>
+        </li>			
 		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="manager")){echo "active"; }?>">
           <a href="<?php echo $fgmembersite->sitename; ?>?mod=manager">
             <i class="fa fa-car"></i><span>Gangguan Kendaraan</span>
@@ -183,6 +263,24 @@ else if($_SESSION[$fgmembersite->GetLoginSessionVar()]['user']['level_user']=='3
 
           </a>
         </li>
+		
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="dataPenderekan")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=dataPenderekan">
+            <i class="fa fa-car"></i> <span>Data Penderekan</span>
+          </a>
+        </li>	
+
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="lajurpenyelamat")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=lajurpenyelamat">
+            <i class="fa fa-eraser"></i> <span>Lajur Penyelamat</span>
+          </a>
+        </li>		
+		
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="fatalitas")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=fatalitas">
+            <i class="fa fa-car"></i> <span>Data TK & TF </span>
+          </a>
+        </li>				
 	
           </ul>
       <!-- search form 
@@ -257,6 +355,35 @@ else if($_SESSION[$fgmembersite->GetLoginSessionVar()]['user']['level_user']=='4
 
           </a>
         </li>
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="pegawai")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=pegawai">
+            <i class="glyphicon glyphicon-user"></i><span>Profil Petugas</span>
+
+          </a>
+        </li>		
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="checklistKashift")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=checklistKashift">
+            <i class="fa fa-safari"></i><span>Kilometer Beat Petugas</span>
+            <!--<span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+			-->
+          </a>          
+        </li>
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="timelinePetugasLJT")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=timelinePetugasLJT">
+            <i class="fa fa-laptop"></i> <span>Waktu dan Posisi</span>
+            <!--<span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+			-->
+          </a>          
+        </li>
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="perjalanan")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=perjalanan">
+            <i class="fa fa-car"></i> <span>Gangguan Perjalanan</span>
+          </a>
+        </li>		
 		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="manager")){echo "active"; }?>">
           <a href="<?php echo $fgmembersite->sitename; ?>?mod=manager">
             <i class="fa fa-car"></i> <span>Gangguan Kendaraan</span>
@@ -297,6 +424,24 @@ else if($_SESSION[$fgmembersite->GetLoginSessionVar()]['user']['level_user']=='4
 
           </a>
         </li>
+
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="dataPenderekan")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=dataPenderekan">
+            <i class="fa fa-car"></i> <span>Data Penderekan</span>
+          </a>
+        </li>	
+
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="lajurpenyelamat")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=lajurpenyelamat">
+            <i class="fa fa-eraser"></i> <span>Lajur Penyelamat</span>
+          </a>
+        </li>			
+		
+		<li class="treeview menu <?php if (isset($_GET["mod"])and($_GET["mod"]=="fatalitas")){echo "active"; }?>">
+          <a href="<?php echo $fgmembersite->sitename; ?>?mod=fatalitas">
+            <i class="fa fa-car"></i> <span>Data TK & TF </span>
+          </a>
+        </li>	
 	
           </ul>
       <!-- search form 

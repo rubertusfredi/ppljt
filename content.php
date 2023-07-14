@@ -86,14 +86,14 @@ if(isset($_POST['findData']))
 	$jam = $tgl->format('H');
 	$jam1 = $tgl->format('H a');
 	$tglCek = $tgl->format('Y-m-d');
-	if ($_POST["shift"]=="3")
+	if ($_POST["kendaraan"]=="3")
 	{
 		if ($jam < 6) 
 		{			  
 		   $tglCek = date('Y-m-d', strtotime('-1 days', strtotime($tglCek)));
 		}		
 	}	
-	$sqlCek2 = 'Select * from tb_checklist_sarana where shift="'.$_POST['shift'].'" and date(tgl)="'.$tglCek.'" and jenis_sarana="'.$_POST['kendaraan'].'" and id_kendaraan="'.$_POST['kendaraan'].'"';
+	$sqlCek2 = 'Select * from tb_checklist_sarana where kendaraan="'.$_POST['kendaraan'].'" and date(tgl)="'.$tglCek.'" and jenis_sarana="'.$_POST['kendaraan'].'" and id_kendaraan="'.$_POST['kendaraan'].'"';
 	#echo $sqlCek2;
 	$fgmembersite->sql($sqlCek2);
 	$rowsCek2 = $fgmembersite->numRows();	
@@ -110,7 +110,7 @@ if(isset($_POST['findData']))
 	else
 	{			
 		#$this->id_checklist_sarana = date("YmdHis").mt_rand(100,999);
-		#$this->insert('tb_checklist_sarana',array('id_checklist_sarana'=>$this->id_checklist_sarana ,'tgl'=>$tglCek,'id_kendaraan'=>$_POST['kendaraan'],'shift'=>$_POST['shift'],'jenis_sarana'=>'LJT'.$_POST['kendaraan'],'id_tugas'=>$idtugas));
+		#$this->insert('tb_checklist_sarana',array('id_checklist_sarana'=>$this->id_checklist_sarana ,'tgl'=>$tglCek,'id_kendaraan'=>$_POST['kendaraan'],'kendaraan'=>$_POST['kendaraan'],'jenis_sarana'=>'LJT'.$_POST['kendaraan'],'id_tugas'=>$idtugas));
 		#print_r($this->getSql());
 		#$this->getResult();
 		
@@ -132,12 +132,12 @@ if(isset($_POST['findData']))
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1>
-		Laporan Petugas LJT
-		<small>it all starts here</small>
+		Laporan Petugas MCS
+		<small>Inventaris Rubbercone</small>
 	</h1>
 	<ol class="breadcrumb">
 		<li><i class="fa fa-dashboard"></i> Home</li>
-		<li class="active">Laporan Petugas LJT</li>
+		<li class="active">Laporan Petugas MCS</li>
 	</ol>
 </section>
 
@@ -147,8 +147,8 @@ if(isset($_POST['findData']))
 	<!-- Custom Tabs -->
 	<div class="nav-tabs-custom">
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="#tab_1" data-toggle="tab">1. Data Petugas</a></li>
-			<li><a href="#tab_2" data-toggle="tab">2. Form Ceklist KR</a></li>
+			<li class="active"><a href="#tab_1" data-toggle="tab">1. Pemasangan RC</a></li>
+			<li><a href="#tab_2" data-toggle="tab">2. Pengamanan RC</a></li>
 			<!--
 			<li><a href="#tab_3" data-toggle="tab">3. Hasil Tugas</a></li>			  
 			<li><a href="#tab_4" data-toggle="tab">4. Form Ceklist Akhir</a></li>
@@ -160,8 +160,8 @@ if(isset($_POST['findData']))
 			<!-- <div class="box box-primary"> -->
 			<div class="">
 			<div class="box-header">
-				<h3 class="box-title">Absensi Petugas Layanan Jalan Tol</h3>
-				<p class="help-block">Silahkan lengkapi kolom absensi data petugas, bila sudah tekan tombol kirim.</p>
+				<h3 class="box-title">Pemasanagan RC Oleh Petugas</h3>
+				<p class="help-block">Silahkan lengkapi kolom isian.</p>
 				</div>
             <div class="box-body">
 			<div><span class='error'><?php
@@ -169,7 +169,7 @@ if(isset($_POST['findData']))
 			$error = $fgmembersite->GetErrorMessageInput();
 			
 			#print_r($fgmembersite->GetErrorMessageInput());
-			#f (isset($error['shift'])){echo $error['shift'];}
+			#f (isset($error['kendaraan'])){echo $error['kendaraan'];}
 			#$error = $fgmembersite->GetErrorMessage('error');
 			#var_dump($error); ?></span></div>
 				<form class="form-horizontal" id="absensiForm" enctype="multipart/form-data" action='<?php echo $fgmembersite->GetSelfScript(); ?>' method='post' accept-charset='UTF-8'>
@@ -187,129 +187,200 @@ if(isset($_POST['findData']))
 					</div>
 					-->
 					
-					<div class="form-group <?php if (isset($error['shift'])){echo 'has-error';} ?>">
-						<label for="shift" class="col-sm-2 control-label">PILIH SHIFT/PERIODA</label>
-
-						<div class="col-sm-10">
-							<div class="input-group">
-								<div class="input-group-addon">
-									<i class="fa fa-genderless"></i>
+						<div class="form-group <?php if (isset($error['taruna_dari'])){echo 'has-error';} ?>">
+							<label for="taruna_dari" class="col-sm-2 control-label">PILIH PETUGAS</label>
+							<div class="col-sm-210">
+								<div class="input-group">
+									<div class="input-group-addon">
+										<i class="fa fa-car"></i>
+									</div>
+									<select class="form-control" id="taruna_dari" name="taruna_dari">
+										<option value="">--</option>
+											<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="201") {echo "selected"; } ?> value="201" value="201">201</option>
+											<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="203") {echo "selected"; } ?> value="203">203</option>
+											<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="204") {echo "selected"; } ?> value="204">204</option>
+												<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="241") {echo "selected"; } ?> value="241">241</option>
+												<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="223") {echo "selected"; } ?> value="223">223</option>
+												<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="221E") {echo "selected"; } ?> value="221E">221E</option>
+												<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="130A") {echo "selected"; } ?> value="130A">130A</option>										
+												<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="LJT210") {echo "selected"; } ?> value="LJT210" >LJT210</option>
+												<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="LJT212") {echo "selected"; } ?> value="LJT212">LJT212</option>
+												<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="LJT213") {echo "selected"; } ?> value="LJT213">LJT213</option>
+												<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="DEREK") {echo "selected"; } ?> value="DEREK">DEREK</option>
+												<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="RESCUE") {echo "selected"; } ?> value="RESCUE">RESCUE</option>
+												<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="AMBULANCE") {echo "selected"; } ?> value="AMBULANCE">AMBULANCE</option>
+												<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="TIRTA") {echo "selected"; } ?> value="TIRTA">TIRTA</option>
+												<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="TI") {echo "selected"; } ?> value="TI">TI</option>
+												<option <?php if($fgmembersite->SafeDisplay('taruna_dari')=="JMTM") {echo "selected"; } ?> value="JMTM">JMTM</option>
+	
+									</select>							
 								</div>
-								<select class="form-control" id="shift" name="shift">
-									<option value="">--</option>
-									<?php									
-									$fgmembersite->select('tbl_shift','id_shift,nama_shift','','',''); 
-									$res = $fgmembersite->getResult();
-									foreach($res as $output)
-									{
-										if($fgmembersite->SafeDisplay('shift')==$output['id_shift']){ $a='selected'; }else{$a='';}
-										echo '<option value="'.$output['id_shift'].'" '.$a.'>Shift '.$output['nama_shift'].'</option>';
-									}
-									?>										
-								</select>							
+								<?php if (isset($error['taruna_dari'])){echo '<i><small><span class="help-block">'.$error['taruna_dari'].'</span></small></i>';} ?>
+							</div>					
+					</div>	
+
+						<div class="form-group <?php if (isset($error['km'])){echo 'has-error';} ?>">
+							<label for="km" class="col-sm-2 control-label">KM</label>
+
+							<div class="col-sm-2">
+								<div class="input-group">
+									<div class="input-group-addon">
+										<i class="fa fa-map-marker"></i>
+									</div>
+                                    <select class="form-control" id="km" name="km">
+                                        <option value="">--</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="GT.Manyaran") {echo "selected"; } ?> value="GT.Manyaran">GT.Manyaran</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="GT.Tembalang") {echo "selected"; } ?> value="GT.Tembalang">GT.Tembalang</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="GT.Gayamsari") {echo "selected"; } ?> value="GT.Gayamsari">GT.Gayamsari</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="GT.Muktiharjo") {echo "selected"; } ?> value="GT.Muktiharjo">GT.Muktiharjo</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="GT.Srondol") {echo "selected"; } ?> value="GT.Srondol">GT.Srondol</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="GT.Jatingaleh1") {echo "selected"; } ?> value="GT.Jatingaleh1">GT.Jatingaleh1</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="GT.Jatingaleh2") {echo "selected"; } ?> value="GT.Jatingaleh2">GT.Jatingaleh2</option>										
+										<option <?php if($fgmembersite->SafeDisplay('km')=="GT.Krapyak1") {echo "selected"; } ?> value="GT.Krapyak1">GT.Krapyak1</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="GT.Krapyak2") {echo "selected"; } ?> value="GT.Krapyak2">GT.Krapyak2</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="TI") {echo "selected"; } ?> value="TI">TI</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="420") {echo "selected"; } ?> value="420">420</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="421") {echo "selected"; } ?> value="421">421</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="422") {echo "selected"; } ?> value="422">422</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="423") {echo "selected"; } ?> value="423">423</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="424") {echo "selected"; } ?> value="424">424</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="425") {echo "selected"; } ?> value="425">425</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="426") {echo "selected"; } ?> value="426">426</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="427") {echo "selected"; } ?> value="427">427</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="428") {echo "selected"; } ?> value="428">428</option>	
+										<option <?php if($fgmembersite->SafeDisplay('km')=="429") {echo "selected"; } ?> value="429">429</option>	
+										<option <?php if($fgmembersite->SafeDisplay('km')=="430") {echo "selected"; } ?> value="430">430</option>	
+										<option <?php if($fgmembersite->SafeDisplay('km')=="431") {echo "selected"; } ?> value="431">431</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="432") {echo "selected"; } ?> value="432">432</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="433") {echo "selected"; } ?> value="433">433</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="434") {echo "selected"; } ?> value="434">434</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="435") {echo "selected"; } ?> value="435">435</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="436") {echo "selected"; } ?> value="436">436</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="437") {echo "selected"; } ?> value="437">437</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="438") {echo "selected"; } ?> value="438">438</option>
+										<option <?php if($fgmembersite->SafeDisplay('km')=="439") {echo "selected"; } ?> value="439">439</option>													
+									</select>				
+								</div>
+								<?php if (isset($error['km'])){echo '<i><small><span class="help-block">'.$error['km'].'</span></small></i>';} ?>
+							</div>	
+							
+<!---------------------------- METER + dari tabel tb_km gan, dan di menu manager ditambahkan CRUD tabelnya ---------------------------->								
+							
+						<label for="meter" class="col-sm-2 control-label">METER +</label>
+							<div class="col-sm-2">
+								<div class="input-group">
+									<div class="input-group-addon">
+										<i class="fa fa-plus-square"></i>
+									</div>
+                                    <select class="form-control" id="meter" name="meter">
+<option value="">--</option>										
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+000") {echo "selected"; } ?>  value="+000">+000</option>
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+050") {echo "selected"; } ?>  value="+050">+050</option>
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+100") {echo "selected"; } ?>  value="+100">+100</option>
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+150") {echo "selected"; } ?>  value="+150">+150</option>										
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+200") {echo "selected"; } ?>  value="+200">+200</option>
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+250") {echo "selected"; } ?>  value="+250">+250</option>										
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+300") {echo "selected"; } ?>  value="+300">+300</option>
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+350") {echo "selected"; } ?>  value="+350">+350</option>										
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+400") {echo "selected"; } ?>  value="+400">+400</option>
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+450") {echo "selected"; } ?>  value="+450">+450</option>										
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+500") {echo "selected"; } ?>  value="+500">+500</option>
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+550") {echo "selected"; } ?>  value="+550">+550</option>										
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+600") {echo "selected"; } ?>  value="+600">+600</option>
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+650") {echo "selected"; } ?>  value="+650">+650</option>										
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+700") {echo "selected"; } ?>  value="+700">+700</option>
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+750") {echo "selected"; } ?>  value="+750">+750</option>										
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+800") {echo "selected"; } ?>  value="+800">+800</option>	
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+850") {echo "selected"; } ?>  value="+850">+850</option>										
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+900") {echo "selected"; } ?>  value="+900">+900</option>											
+<option <?php if($fgmembersite->SafeDisplay('meter')=="+950") {echo "selected"; } ?>  value="+950">+950</option>										
+									</select>				
+								</div>
+								<?php if (isset($error['meter'])){echo '<i><small><span class="help-block">'.$error['meter'].'</span></small></i>';} ?>
 							</div>
-							<?php if (isset($error['shift'])){echo '<i><small><span class="help-block">'.$error['shift'].'</span></small></i>';} ?>
+
+<!---------------------------- SEKSI AMBIL dari tabel tb_km_seksi gan, dan di menu manager ditambahkan CRUD tabelnya ---------------------------->	
+							
+							<label for="seksi" class="col-sm-2 control-label">SEKSI</label>	
+							<div class="col-sm-2">
+								<div class="input-group">
+									<div class="input-group-addon">
+										<i class="fa fa-road"></i>
+									</div>
+                                    <select class="form-control" id="seksi" name="seksi">
+                                        <option value="">--</option>
+										<option <?php if($fgmembersite->SafeDisplay('seksi')=="A") {echo "selected"; } ?>  value="A">A</option>										
+										<option <?php if($fgmembersite->SafeDisplay('seksi')=="B") {echo "selected"; } ?>  value="B">B</option>										
+										<option <?php if($fgmembersite->SafeDisplay('seksi')=="A/A") {echo "selected"; } ?>  value="A/A">A/A</option>																				
+										<option <?php if($fgmembersite->SafeDisplay('seksi')=="A/B") {echo "selected"; } ?> value="A/B">A/B</option>
+										<option <?php if($fgmembersite->SafeDisplay('seksi')=="A/C") {echo "selected"; } ?> value="A/C">A/C</option>
+										<option <?php if($fgmembersite->SafeDisplay('seksi')=="B/A") {echo "selected"; } ?> value="B/A">B/A</option>
+										<option <?php if($fgmembersite->SafeDisplay('seksi')=="B/B") {echo "selected"; } ?> value="B/B">B/B</option>
+										<option <?php if($fgmembersite->SafeDisplay('seksi')=="B/C") {echo "selected"; } ?> value="B/C">B/C</option>										
+										<option <?php if($fgmembersite->SafeDisplay('seksi')=="C/A") {echo "selected"; } ?> value="C/A">C/A</option>
+										<option <?php if($fgmembersite->SafeDisplay('seksi')=="C/B") {echo "selected"; } ?> value="C/B">C/B</option>										
+										<option <?php if($fgmembersite->SafeDisplay('seksi')=="C/C") {echo "selected"; } ?> value="C/C">C/C</option>												
+									</select>				
+								</div>
+								<?php if (isset($error['seksi'])){echo '<i><small><span class="help-block">'.$error['seksi'].'</span></small></i>';} ?>
+							</div>								
 						</div>
-					</div>
+
+						<div class="form-group <?php if (isset($error['keterangan'])){echo 'has-error';} ?>">
+							<label for="keterangan" class="col-sm-2 control-label">Nomor Rubber Cone</label>
+
+							<div class="col-sm-10">
+								<div class="input-group">
+									<div class="input-group-addon">
+										<i class="fa fa-genderless"></i>
+									</div>
+									<textarea class="form-control" rows="3" name="keterangan" placeholder="Nomor rubbercone ..."><?php echo $fgmembersite->SafeDisplay('keterangan'); ?></textarea>					
+								</div>
+								<?php if (isset($error['keterangan'])){echo '<i><small><span class="help-block">'.$error['keterangan'].'</span></small></i>';} ?>
+							</div>
+						</div>
+						
+						
 					
-					
-					<div class="form-group <?php if (isset($error['kendaraan'])){echo 'has-error';} ?>">
-						<label for="kendaraan" class="col-sm-2 control-label">PILIH Kendaraan</label>
-
-						<div class="col-sm-10">
-							<div class="input-group">
-								<div class="input-group-addon">
-									<i class="fa fa-genderless"></i>
-								</div>
-								<select class="form-control" id="kendaraan" name="kendaraan">
-									<option value="">--</option>
-									<?php									
-									$fgmembersite->select('tb_kendaraan','id_kendaraan,type,jenis','','',''); 
-									$res = $fgmembersite->getResult();
-									foreach($res as $output)
-									{
-										if($fgmembersite->SafeDisplay('kendaraan')==$output['id_kendaraan']){ $a='selected'; }else{$a='';}
-										echo '<option value="'.$output['id_kendaraan'].'" '.$a.'>'.$output['jenis'].'</option>';
-									}
-									?>																	
-								</select>
-							</div>
-							<?php if (isset($error['kendaraan'])){echo '<i><small><span class="help-block">'.$error['kendaraan'].'</span></small></i>';} ?>
-						</div>
-					</div>
-
-					<div class="form-group <?php if (isset($error['petugas1'])){echo 'has-error';} ?>">
-						<label for="petugas1" class="col-sm-2 control-label">Nama Petugas LJT 1</label>
-
-						<div class="col-sm-10">
-							<div class="input-group">
-								<div class="input-group-addon">
-									<i class="fa fa-genderless"></i>
-								</div>
-								<select class="form-control" id="petugas1" name="petugas1">
-									<option value="">--</option>
-									<?php									
-									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','id_user DESC'); 
-									$res = $fgmembersite->getResult();
-									foreach($res as $output)
-									{
-										if($fgmembersite->SafeDisplay('petugas1')==$output['id_user']){ $a='selected'; }else{$a='';}
-										echo '<option value="'.$output['id_user'].'" '.$a.'>'.$output['name'].' ('.$output['npp'].')</option>';
-									}
-									?>
-								</select>
-							</div>
-							<?php if (isset($error['petugas1'])){echo '<i><small><span class="help-block">'.$error['petugas1'].'</span></small></i>';} ?>
-						</div>
-					</div>
 					<div class="form-group <?php if (isset($error['user_image_petugas1'])){echo 'has-error';} ?>">
 						<label for="user_image_petugas1" class="col-sm-2 control-label">&nbsp;</label>
 						<div class="col-sm-10">
 							<div class="input-group">						
 								<input class="input-group" type="file" id="user_image_petugas1" name="user_image_petugas1" accept="image/*" />
-								<p class="help-block">Uplodad Foto Petugas I.</p>
+								<p class="help-block">Uplodad Foto Rubbercone</p>
 							</div>
 							<?php if (isset($error['user_image_petugas1'])){echo '<i><small><span class="help-block">'.$error['user_image_petugas1'].'</span></small></i>';} ?>							
 						</div>
 					</div>
+
+
+<button id="start-camera">Start Camera</button>
+<video id="video" width="320" height="240" autoplay></video>
+<button id="click-photo">Click Photo</button>
+<canvas id="canvas" width="320" height="240"></canvas>
 					
-					<div class="form-group <?php if (isset($error['petugas2'])){echo 'has-error';} ?>">
-						<label for="inputName" class="col-sm-2 control-label">Nama Petugas Pendamping 2</label>
+					
+<script>	
+function				
+let camera_button = document.querySelector("#start-camera");
+let video = document.querySelector("#video");
+let click_button = document.querySelector("#click-photo");
+let canvas = document.querySelector("#canvas");
 
-						<div class="col-sm-10">
-							<div class="input-group">
-								<div class="input-group-addon">
-									<i class="fa fa-genderless"></i>
-								</div>
-								<select class="form-control" name="petugas2">
-									<option value="">--</option>
-									<?php									
-									$fgmembersite->select('tb_pegawai','id_user,name,npp','','level_user="1"','id_user DESC'); 
-									$res = $fgmembersite->getResult();
-									foreach($res as $output)
-									{
-										if($fgmembersite->SafeDisplay('petugas2')==$output['id_user']){ $a='selected'; }else{$a='';}
-										echo '<option value="'.$output['id_user'].'" '.$a.'>'.$output['name'].' ('.$output['npp'].')</option>';
-									}
-									?>							
-								</select>
-							</div>
-							<?php if (isset($error['petugas2'])){echo '<i><small><span class="help-block">'.$error['petugas2'].'</span></small></i>';} ?>
-						</div>
-					</div>
-					<div class="form-group <?php if (isset($error['user_image_petugas2'])){echo 'has-error';} ?>">
-						<label for="user_image_petugas2" class="col-sm-2 control-label">&nbsp;</label>
-						<div class="col-sm-10">
-							<div class="input-group">						
-								<input class="input-group" type="file" id="user_image_petugas2" name="user_image_petugas2" accept="image/*" />
-								<p class="help-block">Uplodad Foto Petugas II.</p>
-							</div>
-							<?php if (isset($error['user_image_petugas2'])){echo '<i><small><span class="help-block">'.$error['user_image_petugas2'].'</span></small></i>';} ?>							
-						</div>
-					</div>
+camera_button.addEventListener('click', async function() {
+   	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+	video.srcObject = stream;
+});
 
+click_button.addEventListener('click', function() {
+   	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+   	let image_data_url = canvas.toDataURL('image/jpeg');
 
-
+   	// data url of the image
+   	console.log(image_data_url);
+});					
+</script>	
+				
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
 							<input type="submit" class="btn btn-danger" name='Submit' value='Submit'>							
@@ -350,40 +421,15 @@ if(!isset($_POST['submitted']))
 			<input type="hidden" name="tgl_tugas" value="<?php echo date("y-m-d"); ?>" />
 			<input type="hidden" name="absensi" value="1" />
 
-			<div class="form-group <?php if (isset($error['shift'])){echo 'has-error';} ?>">
-				<label for="shift" class="col-sm-2 control-label">PILIH SHIFT/PERIODA</label>
+			<div class="form-group <?php if (isset($error['lokasi'])){echo 'has-error';} ?>">
+				<label for="lokasi" class="col-sm-2 control-label">PILIH Lokasi</label>
 
 				<div class="col-sm-10">
 					<div class="input-group">
 						<div class="input-group-addon">
 							<i class="fa fa-genderless"></i>
 						</div>
-						<select class="form-control" id="shift" name="shift" required="true">
-							<option value="">--</option>
-							<?php									
-							$fgmembersite->select('tbl_shift','id_shift,nama_shift','','',''); 
-							$res = $fgmembersite->getResult();
-							foreach($res as $output)
-							{
-								if($fgmembersite->SafeDisplay('shift')==$output['id_shift']){ $a='selected'; }else{$a='';}
-								echo '<option value="'.$output['id_shift'].'" '.$a.'>Shift '.$output['nama_shift'].'</option>';
-							}
-							?>										
-						</select>							
-					</div>
-					<?php if (isset($error['shift'])){echo '<i><small><span class="help-block">'.$error['shift'].'</span></small></i>';} ?>
-				</div>
-			</div>
-			
-			<div class="form-group <?php if (isset($error['kendaraan'])){echo 'has-error';} ?>">
-				<label for="kendaraan" class="col-sm-2 control-label">PILIH Kendaraan</label>
-
-				<div class="col-sm-10">
-					<div class="input-group">
-						<div class="input-group-addon">
-							<i class="fa fa-genderless"></i>
-						</div>
-						<select class="form-control" id="kendaraan" name="kendaraan">
+						<select class="form-control" id="lokasi" name="lokasi">
 							<option value="">--</option>
 							<?php									
 							$fgmembersite->select('tb_kendaraan','id_kendaraan,type,jenis','','',''); 
@@ -396,7 +442,32 @@ if(!isset($_POST['submitted']))
 							?>																	
 						</select>
 					</div>
-					<?php if (isset($error['kendaraan'])){echo '<i><small><span class="help-block">'.$error['kendaraan'].'</span></small></i>';} ?>
+					<?php if (isset($error['lokasi'])){echo '<i><small><span class="help-block">'.$error['lokasi'].'</span></small></i>';} ?>
+				</div>
+			</div>
+			
+			<div class="form-group <?php if (isset($error['lokasi'])){echo 'has-error';} ?>">
+				<label for="lokasi" class="col-sm-2 control-label">PILIH Lokasi</label>
+
+				<div class="col-sm-10">
+					<div class="input-group">
+						<div class="input-group-addon">
+							<i class="fa fa-genderless"></i>
+						</div>
+						<select class="form-control" id="lokasi" name="lokasi">
+							<option value="">--</option>
+							<?php									
+							$fgmembersite->select('tb_kendaraan','id_kendaraan,type,jenis','','',''); 
+							$res = $fgmembersite->getResult();
+							foreach($res as $output)
+							{
+								if($fgmembersite->SafeDisplay('kendaraan')==$output['id_kendaraan']){ $a='selected'; }else{$a='';}
+								echo '<option value="'.$output['id_kendaraan'].'" '.$a.'>'.$output['jenis'].'</option>';
+							}
+							?>																	
+						</select>
+					</div>
+					<?php if (isset($error['lokasi'])){echo '<i><small><span class="help-block">'.$error['lokasi'].'</span></small></i>';} ?>
 				</div>
 			</div>
 
@@ -428,7 +499,7 @@ if(isset($foundData)and($foundData=='1'))
 		<input type="hidden" name="id_kendaraan" value="<?php echo $_POST['kendaraan']; ?>" />
 		<input type="hidden" name="checklist" value="<?php echo $resCheck[0]["status"]; ?>" />		
 		
-		<input type="hidden" name="shift" value="<?php echo $_POST["shift"]; ?>" />
+		<input type="hidden" name="kendaraan" value="<?php echo $_POST["kendaraan"]; ?>" />
 		
 		<?php
 		if ($resCheck[0]["status"]=="1")
